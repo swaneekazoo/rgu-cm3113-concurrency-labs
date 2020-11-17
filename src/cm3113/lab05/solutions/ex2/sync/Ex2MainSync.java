@@ -1,4 +1,4 @@
-package cm3113.lab05.solutions.sync;
+package cm3113.lab05.solutions.ex2.sync;
 /* File: Ex2Main.java used in CM3113 Lab 5 Exercise 2
  * Code has unprotected access to shared data */
 
@@ -13,12 +13,12 @@ public class Ex2MainSync {
   public static void main(String[] args) { 
     List buffer = new ArrayList<>();
 
-    cm3113.lab05.solutions.ex24.Consumer c = new cm3113.lab05.solutions.ex24.Consumer(NPRODUCERS, buffer);
+    Consumer c = new Consumer(NPRODUCERS, buffer);
     c.start() ;
     
-    cm3113.lab05.solutions.ex24.Producer[] p = new cm3113.lab05.solutions.ex24.Producer[NPRODUCERS] ;
+    Producer[] p = new Producer[NPRODUCERS] ;
     for (int i = 0 ; i < NPRODUCERS ; i++) { 
-      p[i] = new cm3113.lab05.solutions.ex24.Producer(i, NPRODUCERS, buffer);
+      p[i] = new Producer(i, NPRODUCERS, buffer);
       p[i].start() ;  
     }    
   }  
